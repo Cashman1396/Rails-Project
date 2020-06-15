@@ -1,6 +1,13 @@
 class CreateAssignments < ActiveRecord::Migration[6.0]
   def change
     create_table :assignments do |t|
+      t.string :name
+      t.integer :rating
+      t.boolean :filled, default: false
+      t.belongs_to :camp_counselors, index: true, foreign_key: true
+      t.belongs_to :activity, index: true, foreign_key: true
+
+      t.timestamps null: false
     end
   end
 end
