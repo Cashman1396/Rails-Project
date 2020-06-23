@@ -5,8 +5,8 @@ class CampCounselor < ActiveRecord::Base
   has_many :camps, through: :assignments
   has_many :comments
 
-  validates :name, presence: true, :email, presence: true
-  validates :name, uniqueness: true, :email, uniqueness: true
+  validates :name, :email, presence: true
+  validates :name, :email, uniqueness: true
   
 
 
