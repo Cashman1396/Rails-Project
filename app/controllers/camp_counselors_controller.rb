@@ -4,7 +4,7 @@ class CampCounselorsController < ApplicationController
   include CampCounselorsHelper
 
   def show
-    @counselor = Counselor.find(params[:id])
+    #@counselor = Counselor.find(params[:id])
   end
 
   def new
@@ -22,16 +22,30 @@ class CampCounselorsController < ApplicationController
   end
 
   def edit
+    #@counselor = Counselor.find(params[:id])
   end
 
   def update
+    if @counselor.update(counselor_params)
+      redirect_to camp_counselor_path(@counselor)
+    else
+      render :edit
+    end
   end
 
   def destroy 
+    @counselor.destroy
+    redirect_to signin_path
   end
 
   private
 
+  def set_counselor
+    @counselor = Counselor.find_by(id: session[:user_id])
+  end 
+
   def counselors_params
+    params.require(:camp_counselor).permit(:name, :age, :email, :admin, :uid, :provider, :password)
   end
+  
 end
