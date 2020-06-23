@@ -1,6 +1,6 @@
 module SessionsHelper
  #the logic to sign up and in as a camp counselor
-  def sign_in
+  def signin_logic
     if params[:camp_counselor]
         if counselor = Counselor.find_by(name: params[:camp_counselor][:name]).try(:authenticate, params[:camp_counselor][:password])
           session[:user_id] = counselor.id
@@ -22,9 +22,9 @@ module SessionsHelper
     end 
   end 
 
- def login_error
-    flash[:notice]
- end   
+  def login_error
+     flash[:notice]
+  end   
 
- 
+
 end 
