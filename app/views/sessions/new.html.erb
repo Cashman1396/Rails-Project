@@ -1,0 +1,18 @@
+<h1> Welcome to Summer Camp Helper!</h1>
+
+
+<div class="notice"
+  <%= login_error %>
+</div>
+
+<div id="form">
+  <%= render partial: 'login_form' %>
+</div>
+<p>
+  <%= form_tag new_camp_counselor_path, method: :get do %>
+  <%= submit_tag "Create Account" %>
+  <% end %>
+  <br>
+
+  </p>
+</div>
