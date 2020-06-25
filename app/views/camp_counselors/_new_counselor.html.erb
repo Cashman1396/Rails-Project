@@ -9,5 +9,22 @@
     <br>
     <%= f.label :age%>
     <%= f.number_field :age %>
+    <br> 
+    <br>
+    <%= f.label(:admin, "Camp Admin") %>
+    <%= f.radio_button(:admin, true) %>Yes
+    <%= f.radio_button(:admin, false)%>No
+    <br>
+    <br>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+    <br>
+    <h4>Confirm Password</h4>
+    <%= f.label :confirm_password %>
+    <%= f.password_field :password_confirmation %>
+    <br> 
+    <br>
+
+    <%= f.submit "Create Account" %>
 
     <% end %>

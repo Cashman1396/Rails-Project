@@ -23,6 +23,9 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+#uses github omniauth
+gem 'omniauth-github'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
@@ -55,5 +58,13 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "websocket-extensions", ">= 0.1.5"
+
+gem "actionpack", ">= 6.0.3.2"
+
+gem "rack", ">= 2.2.3"
+
+
+
+
 
 

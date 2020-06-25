@@ -13,7 +13,7 @@ class CampCounselorsController < ApplicationController
 
   def create
     @counselor = CampCounselor.create(counselors_params)
-    if @counselors.save 
+    if @counselor.save 
       session[:user_ud] = @counselor.id
       redirect_to camp_counselor_path(@counselor)
     else 
@@ -47,5 +47,5 @@ class CampCounselorsController < ApplicationController
   def counselors_params
     params.require(:camp_counselor).permit(:name, :age, :email, :admin, :uid, :provider, :password)
   end
-  
+
 end

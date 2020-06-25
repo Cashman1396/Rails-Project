@@ -10,4 +10,6 @@ Rails.application.routes.draw do
     resources :assignments, only: [:show, :index]
     resources :comments, shallow: true
   end 
+
+  match '/auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
 end
