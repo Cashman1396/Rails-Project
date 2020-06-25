@@ -1,7 +1,6 @@
 class ActivitiesController < ApplicationController
-  before_action :set_activity, only [:show, :edit, update, :destroy]
+  before_action :set_activity, only: [:show, :edit, :update, :destroy]
   include ActivitiesHelper
-
 
   def index
     if params[:camp_id]
@@ -10,31 +9,31 @@ class ActivitiesController < ApplicationController
     else
       @activities = Activity.all.sorted_asc
     end
-  end 
+  end
 
   def show
     @assignments = @activity.assignments.order_by_filled
     @comments = @activity.comments
-  end 
+  end
 
-  def new 
+  def new
     @camp = Camp.find_by(id: params[:camp_id]) if params[:camp_id]
     @activity = Activity.new
-  end 
+  end
 
   def create
     create_logic
-  end 
+  end
 
   def edit
-  end 
+  end
 
   def update
     if @activity.update(activity_params)
-        redirect_to @activity
+      redirect_to @activity
     else
-        render :edit
-    end  
+      render :edit
+    end
   end
 
   def destroy
@@ -42,7 +41,8 @@ class ActivitiesController < ApplicationController
     redirect_to activities_path
   end
 
-  private 
+
+  private
 
   def set_activity
     @activity = Activity.find_by(id: params[:id])
@@ -56,11 +56,12 @@ class ActivitiesController < ApplicationController
     @activity = Activity.create(activity_params)
     if @activity.save
       2.times do
-        @activity.assignments.create(:activity_id => @activity_id, :camp => @activity.camp_id, :filled => false, :rating => 0)
+        @activity.assignments.create(:activity_id => @activity.id, :camp_id => @activity.camp_id, :filled => false, :rating => 0)
       end
       redirect_to activity_path(@activity)
     else
       render :new
-    end 
-  end 
-end 
+    end
+  end
+
+end

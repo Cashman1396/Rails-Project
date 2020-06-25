@@ -1,0 +1,9 @@
+<h1>Update Your Site Leader/Camp Counselor Profile:</h1>
+<br>
+
+<%= render partial: 'layouts/flash_notice', locals: {object: @counselor}%>
+
+<br>
+<div id="form">
+<%= render partial: 'form', locals: {counselor: @counselor} %>
+</div>

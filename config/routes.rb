@@ -11,5 +11,15 @@ Rails.application.routes.draw do
     resources :comments, shallow: true
   end 
 
-  match '/auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
+  resources :camps do
+    resources :activities
+  end 
+
+  resources :activities do
+    resources :assignments
+  end 
+
+  resources :assignments
+  
+  get '/auth/github/callback' => 'sessions#create'
 end
