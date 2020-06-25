@@ -21,5 +21,5 @@ Rails.application.routes.draw do
 
   resources :assignments
   
-  get '/auth/github/callback' => 'sessions#create'
+  get '/auth/:provider/callback' => 'sessions#create'
 end

@@ -25,13 +25,13 @@ ActiveRecord::Schema.define(version: 2020_06_15_181726) do
     t.string "name"
     t.integer "rating"
     t.boolean "filled", default: false
-    t.integer "camp_counselors_id"
+    t.integer "camp_counselor_id"
     t.integer "activity_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "camp_id"
     t.index ["activity_id"], name: "index_assignments_on_activity_id"
-    t.index ["camp_counselors_id"], name: "index_assignments_on_camp_counselors_id"
+    t.index ["camp_counselor_id"], name: "index_assignments_on_camp_counselor_id"
     t.index ["camp_id"], name: "index_assignments_on_camp_id"
   end
 
@@ -68,6 +68,6 @@ ActiveRecord::Schema.define(version: 2020_06_15_181726) do
 
   add_foreign_key "activities", "camps"
   add_foreign_key "assignments", "activities"
-  add_foreign_key "assignments", "camp_counselors", column: "camp_counselors_id"
+  add_foreign_key "assignments", "camp_counselors"
   add_foreign_key "assignments", "camps"
 end

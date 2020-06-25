@@ -26,7 +26,7 @@ class CampCounselorsController < ApplicationController
   end
 
   def update
-    if @counselor.update(counselor_params)
+    if @counselor.update(counselors_params)
       redirect_to camp_counselor_path(@counselor)
     else
       render :edit

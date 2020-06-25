@@ -42,7 +42,7 @@ class AssignmentsController < ApplicationController
 
   private
 
-  ef set_assignment
+  def set_assignment
     @assignment = Assignment.find_by(id: params[:id])
   end
 
