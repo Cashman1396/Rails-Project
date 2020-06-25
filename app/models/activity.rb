@@ -4,11 +4,11 @@ class Activity < ApplicationRecord
   has_many :comments
   belongs_to :camp
 
-  validates :name, presence: true
+  validates :name, :description, presence: true
   validates :name, uniqueness: true
 
   def self.sorted_asc
     order(name: :asc)
   end 
-  
+
 end

@@ -15,7 +15,8 @@ module ActivitiesHelper
     if @camp
       "#{@camp.name} Activities"
     else
-    "Activities"
+      "Activities"
     end
   end
-end 
+
+end

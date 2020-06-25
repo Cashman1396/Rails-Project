@@ -4,5 +4,9 @@ class Assignment < ApplicationRecord
   belongs_to :camp, optional: true 
 
   validates :rating, presence: true
+
+  def self.order_by_filled
+    order(:filled)
+  end 
     
 end

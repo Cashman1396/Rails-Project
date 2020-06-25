@@ -19,6 +19,8 @@ Rails.application.routes.draw do
     resources :assignments
   end 
 
+  resources :comments, only: [:new, :create]
+
   resources :assignments
   
   get '/auth/:provider/callback' => 'sessions#create'
