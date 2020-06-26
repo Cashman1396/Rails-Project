@@ -4,7 +4,7 @@ class CreateCampCounselors < ActiveRecord::Migration[6.0]
       t.string :name
       t.string :email
       t.string :age
-      t.string :admin
+      t.boolean :admin
       t.string :uid
       t.string :provider
       t.string :password_digest
