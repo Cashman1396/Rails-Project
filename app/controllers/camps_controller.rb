@@ -40,7 +40,7 @@ include CampsHelper
   end 
 
   def camp_params
-    params.require(:camp).permit(:name, :location, :description)
+    params.require(:camp).permit(:name, :location, :description, )
   end 
        
 

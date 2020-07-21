@@ -4,6 +4,7 @@
     <br>
     <% if @camp %>
       <%= f.hidden_field :camp_id, value: @camp.id %>
+      
     <% else %>
       <%= f.label :camp_id, "Camp name:" %><br>
       <%= f.collection_select :camp_id, Camp.all, :id, :name, :include_blank => "Please select" %>

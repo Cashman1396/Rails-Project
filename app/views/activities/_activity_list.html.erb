@@ -1,4 +1,9 @@
+<% if @camp.nil? %>
 <p style="text-align:center;"><%= link_to "Add New Activity", new_activity_path %>
+<br>
+  <% else %>
+<%= link_to "Add New Activity For Camp", new_camp_activity_path(@camp) %>
+<% end %>
 </p>
 <br>
 <% activities.each do |activity| %>
